@@ -26,7 +26,7 @@ Contents
 Introduction
 ------------
 
-For an introduction to OME and user defined functions see [OME User Defined Functions](http://community.ingres.com/wiki/OME:_User_Defined_Functions "http://community.ingres.com/wiki/OME:_User_Defined_Functions"), keywords UDT, UDF
+For an introduction to OME and user defined functions see [OME User Defined Functions](http://docs.actian.com/ingres/11.0/index.html#page/ObjMgmtExtUser%2FWhat_Is_Object_Management_Extension_3f.htm%23 "http://docs.actian.com/ingres/11.0/index.html#page/ObjMgmtExtUser%2FWhat_Is_Object_Management_Extension_3f.htm%23"), keywords UDT, UDF
 
 This article will describe a Python script (py2ome) which can be used to generate wrapper C code for python functions to expose them in the Ingres RDBMS. A simple python function can be called directly through SQL:
 
@@ -65,15 +65,13 @@ py2ome and pyome
 
 Python 2.x from 2.3 or later, you will need the development files (python library and C header files), these come with the Windows installer available from [python.org](http://www.python.org "http://www.python.org"), Python comes installed on most Linux distributions but you may need to install the development files separately.
 
-Python Mako template module available
+Python Mako template module available (version 0.4.1 with Python 2.5 is known to work).
 
 The Ingres RDBMS, I have tested against 2006, 9.3 and 10.0(alpha build) so I think any 2006 or later should work.
 
 An ANSI C compiler, on Windows I have tested with the Visual Studio 2003 C compiler, on Linux I have used gcc 3.3 and 3.4.
 
 A capable version of the make utility, on Windows one is available in [UnixUtils](http://unxutils.sourceforge.net/ "http://unxutils.sourceforge.net/").
-
-The python script and example [DOWNLOAD](http://community.ingres.com/wiki/Image:Py2ome.zip "http://community.ingres.com/wiki/Image:Py2ome.zip").
 
 
 #### Usage
@@ -119,11 +117,6 @@ The Linux make file builds libpyome.so which can be linked to iimerge using iili
 After installing iilibudt.dll on Windows or linking libpyome.so on Linux you will need to make sure that the python module you generated the OME wrapper for is on the python include path, you can put it in the python site-packages directory or set the PYTHONPATH variable to include the directory containing it. You will then need to restart Ingres.
 
 
-#### Help / Suggestions
-
-I've started a thread in the Ingres forums if you want help or to make suggestions please go [here](http://community.ingres.com/forum/contributors-forum/10991-user-defined-functions-ingres-sort.html "http://community.ingres.com/forum/contributors-forum/10991-user-defined-functions-ingres-sort.html").
-
-
 Bugs, Issues and Enhancements
 -----------------------------
 
@@ -148,7 +141,5 @@ Links
 -----
 
 *   [Python](http://www.python.org "http://www.python.org")
-*   [Python C API](http://archive-www.python.org/doc/2.5.2/api/api.html "http://archive-www.python.org/doc/2.5.2/api/api.html")
+*   [Python C API](https://docs.python.org/release/2.5.2/api/api.html "https://docs.python.org/release/2.5.2/api/api.html")
 *   [Embeding Python](http://docs.python.org/extending/index.html "http://docs.python.org/extending/index.html")
-
-Retrieved from "[http://community.ingres.com/wiki/PythonOmeFunctions](http://community.ingres.com/wiki/PythonOmeFunctions)"
