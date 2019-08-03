@@ -1,0 +1,22 @@
+CC          = cl -c
+DLL         = "$(II_SYSTEM)\ingres\bin"
+INC         = -I.\ -I"$(II_SYSTEM)\ingres\files" -I"c:\Python2.5\include"
+CCFLAGS= -G4 -Di386=1 -D_X86_ -DNT_GENERIC -Od -D_DLL -D_MT /nologo -MD $(INC)
+TARGETDLL   = iilibudt.dll
+LIBS        = msvcrt.lib kernel32.lib user32.lib \
+        "$(II_SYSTEM)\ingres\lib\libingres.lib" \
+        "$(II_SYSTEM)\ingres\lib\iiclsadt.obj" \
+        "C:\Python25\libs\python25.lib"
+
+OBJS        = pyome.obj
+DEF         = iilibudt.def
+LINK        = link
+LINKFLAGS   = /NOLOGO /DLL /MACHINE:i386
+
+all: $(OBJS) $(TARGETDLL)
+
+$(OBJS):
+    $(CC) $(CCFLAGS) pyome.c
+
+$(TARGETDLL):
+    $(LINK) $(LINKFLAGS) /DEF:${DEF} /OUT:${TARGETDLL} $(OBJS) $(EXTRAOBJS) $(LIBS)
